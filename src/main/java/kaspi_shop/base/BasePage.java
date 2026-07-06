@@ -21,14 +21,21 @@ public class BasePage {
     }
 
     protected void click(By locator){
+
         waitUtils.waitClickable(locator).click();
     }
 
     protected String getText(By locator){
+
         return waitUtils.waitVisible(locator).getText();
     }
 
+    protected WebElement getElement(By locator){
+        return waitUtils.waitVisible(locator);
+    }
+
     protected List<WebElement> getAll(By locator){
+
         return waitUtils.waitVisibleAll(locator);
     }
 
@@ -47,12 +54,22 @@ public class BasePage {
     }
 
     public String getCurrentUrl(){
+
         return driver.getCurrentUrl();
     }
 
     public String getTitle(){
+
         return driver.getTitle();
     }
 
+    public String getValue(By locate){
+        WebElement element = getElement(locate);
+        return element.getAttribute("value");
+    }
+
+    public boolean isPageOpened(By locator){
+        return isDisplayed(locator);
+    }
 
 }
