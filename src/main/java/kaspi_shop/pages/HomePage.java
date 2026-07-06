@@ -1,4 +1,12 @@
 package kaspi_shop.pages;
 
-public class HomePage {
+import kaspi_shop.base.BasePage;
+import org.openqa.selenium.WebDriver;
+
+public class HomePage extends BasePage {
+
+
+    public HomePage(WebDriver driver){
+        super(driver);
+    }
 }

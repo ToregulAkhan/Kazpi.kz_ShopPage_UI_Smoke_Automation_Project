@@ -8,11 +8,12 @@ import org.openqa.selenium.chrome.ChromeOptions;
 public class DriverManager {
     public static WebDriver webDriver;
 
-    public static void getDriver(){
+    public static WebDriver getDriver(){
         WebDriverManager.chromedriver().setup();
         ChromeOptions chromeOptions = new ChromeOptions();
         webDriver = new ChromeDriver(chromeOptions);
         webDriver.manage().window().maximize();
+        return webDriver;
     }
 
     public static void  quiteDriver(){
