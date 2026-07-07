@@ -20,26 +20,26 @@ public class BasePage {
         this.waitUtils = new WaitUtils(driver);
     }
 
-    protected void click(By locator){
+    public void click(By locator){
 
         waitUtils.waitClickable(locator).click();
     }
 
-    protected String getText(By locator){
+    public String getText(By locator){
 
         return waitUtils.waitVisible(locator).getText();
     }
 
-    protected WebElement getElement(By locator){
+    public WebElement getElement(By locator){
         return waitUtils.waitVisible(locator);
     }
 
-    protected List<WebElement> getAll(By locator){
+    public List<WebElement> getAll(By locator){
 
         return waitUtils.waitVisibleAll(locator);
     }
 
-    protected boolean isDisplayed(By locator){
+    public boolean isDisplayed(By locator){
         try {
             return waitUtils.waitVisible(locator).isDisplayed();
         }catch (NoSuchElementException e){
@@ -47,7 +47,7 @@ public class BasePage {
         }
     }
 
-    protected void ClearAndType(By locator, String text){
+    public void ClearAndType(By locator, String text){
         WebElement element = waitUtils.waitVisible(locator);
         element.clear();
         element.sendKeys(text);
@@ -71,5 +71,6 @@ public class BasePage {
     public boolean isPageOpened(By locator){
         return isDisplayed(locator);
     }
+
 
 }

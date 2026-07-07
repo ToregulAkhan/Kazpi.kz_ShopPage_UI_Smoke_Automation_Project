@@ -12,4 +12,5 @@ public class Urls {
     public static final String FURNITURE_CATEGORIES_URL = BASE_URL + "/c/furniture/";
     public static final String PHARMACY_CATEGORIES_URL = BASE_URL + "/c/pharmacy/";
 
+
 }

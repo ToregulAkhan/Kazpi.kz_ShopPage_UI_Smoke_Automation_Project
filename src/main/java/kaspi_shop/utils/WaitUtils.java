@@ -36,4 +36,8 @@ public class WaitUtils {
     public WebElement waitRefreshed(By locator){
          return wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOfElementLocated(locator)));
     }
+
+    public WebElement waitPresent(By locator) {
+        return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+    }
 }

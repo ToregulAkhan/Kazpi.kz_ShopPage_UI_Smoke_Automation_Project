@@ -10,6 +10,7 @@ public class BaseTest {
 
     protected WebDriver driver;
     protected HomePage homePage;
+    protected BasePage basePage;
 
     @BeforeMethod
     public void setUp(){
