@@ -10,20 +10,54 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 public class HomePageTest extends BaseTest {
 
     @Test
-    public void checkAllCategoriesText(){
+    public void checkNavigationItem(){
         List<String> category = List.of("телефоны и гаджеты", "бытовая техника", "тв, аудио, видео",
                 "компьютеры", "мебель", "красота, здоровье", "детские товары", "аптека");
 
-        List<WebElement> elements = homePage.getAll(By.xpath("//li//a[@class=\"navigation__link\"]"));
+        List<WebElement> elements = homePage.getVisibleAll(By.xpath("//li//a[@class=\"navigation__link\"]"));
         for (WebElement i : elements){
             Assert.assertTrue(category.contains(i.getText().toLowerCase()));
         }
     }
+
+    @Test
+    public void checkCategoryItem() throws InterruptedException {
+        List<String> category = List.of("телефоны и гаджеты", "бытовая техника", "тв, аудио, видео",
+                "компьютеры", "товары для дома", "мебель", "одежда", "спорт, туризм", "автотовары", "аксессуары",
+                "красота и здоровье", "детские товары", "аптека", "строительство и ремонт", "украшения", "обувь",
+                "подарки, товары для праздников", "досуг, книги", "канцелярские товары", "товары для животных");
+
+        Set<String> collected = new LinkedHashSet<>();
+        int maxClicks = 3;
+
+        for (int i = 0; i < maxClicks; i++) {
+            List<WebElement> categoryItems = homePage.getPresentAll(By.cssSelector(".category-item__title"));
+
+            for (WebElement c : categoryItems) {
+                collected.add(c.getText().toLowerCase());
+            }
+
+            By nextArrow = By.cssSelector("[data-test-id='categories-next-slide']");
+
+            homePage.click(nextArrow);
+            Thread.sleep(2000);
+        }
+
+        System.out.println(collected);
+        for (String title : category) {
+            System.out.println(title);
+            Assert.assertTrue(collected.contains(title));
+        }
+    }
+
+
 
     @Test
     public void chooseCity(){

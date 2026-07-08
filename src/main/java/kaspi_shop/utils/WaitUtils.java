@@ -40,4 +40,8 @@ public class WaitUtils {
     public WebElement waitPresent(By locator) {
         return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
     }
+
+    public List<WebElement> waitPresentAll(By locator) {
+        return wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(locator));
+    }
 }

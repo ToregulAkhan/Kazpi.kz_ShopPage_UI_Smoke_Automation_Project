@@ -34,9 +34,13 @@ public class BasePage {
         return waitUtils.waitVisible(locator);
     }
 
-    public List<WebElement> getAll(By locator){
+    public List<WebElement> getVisibleAll(By locator){
 
         return waitUtils.waitVisibleAll(locator);
+    }
+
+    public List<WebElement> getPresentAll(By locator){
+        return waitUtils.waitPresentAll(locator);
     }
 
     public boolean isDisplayed(By locator){
