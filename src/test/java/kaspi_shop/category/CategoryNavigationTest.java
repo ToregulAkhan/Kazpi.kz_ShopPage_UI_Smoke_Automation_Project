@@ -1,4 +1,10 @@
 package kaspi_shop.category;
 
-public class CategoryNavigationTest {
+import kaspi_shop.base.BaseTest;
+import org.testng.annotations.Test;
+
+import java.beans.Transient;
+
+public class CategoryNavigationTest extends BaseTest {
+
 }

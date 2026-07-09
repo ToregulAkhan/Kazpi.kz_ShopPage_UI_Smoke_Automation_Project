@@ -6,7 +6,7 @@ import kaspi_shop.constants.Urls;
 import org.openqa.selenium.WebDriver;
 
 public class SearchPage extends BasePage {
-    public SearchPage(WebDriver driver) {
+    protected SearchPage(WebDriver driver) {
         super(driver);
     }
 
