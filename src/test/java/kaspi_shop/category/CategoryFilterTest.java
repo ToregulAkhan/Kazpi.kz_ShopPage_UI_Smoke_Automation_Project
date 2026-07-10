@@ -78,6 +78,7 @@ public class CategoryFilterTest extends BaseTest {
             String textName = all_select_list.get(i).getText();
             all_select_list.get(i).click();
             int count = 0;
+
             while (true){
                 try {
                     Assert.assertEquals(textName, categoryPage.getText(actual_list));
