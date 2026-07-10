@@ -30,7 +30,7 @@ public class CategoryFilterTest extends BaseTest {
         By sulpak = By.xpath("//span[text()='Sulpаk']");
 
         List<By> filterLink = List.of(price_10000, samsung, sulpak);
-        By activeFilterRow = By.cssSelector(".filters__filter-row._active");
+        By activeFilterRow = By.cssSelector("[class=\"filters__filter-row _active \"]");
 
         int expectedCount = 0;
 
@@ -42,8 +42,7 @@ public class CategoryFilterTest extends BaseTest {
             while (true) {
                 try {
                     List<WebElement> activeFilters = categoryPage.getVisibleAll(activeFilterRow);
-                    Assert.assertEquals(activeFilters.size(), expectedCount,
-                            "Ожидали " + expectedCount + " активных фильтров");
+                    Assert.assertEquals(activeFilters.size(), expectedCount);
 
                     System.out.println(activeFilters.get(activeFilters.size() - 1).getText());
                     break;   // проверка прошла - выходим из retry-цикла, переходим к следующему фильтру
