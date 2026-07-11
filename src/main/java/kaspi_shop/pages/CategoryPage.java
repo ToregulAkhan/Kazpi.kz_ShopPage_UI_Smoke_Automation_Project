@@ -1,7 +1,10 @@
 package kaspi_shop.pages;
 
 import kaspi_shop.base.BasePage;
+import kaspi_shop.constants.Locator;
 import kaspi_shop.constants.Urls;
+import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 
 public class CategoryPage extends BasePage {
@@ -10,5 +13,24 @@ public class CategoryPage extends BasePage {
         super(driver);
     }
 
+    public void clickFirstItemCardWithRetry(By locator) throws InterruptedException {
+        for (int attempt = 1; attempt <= 3; attempt++) {
+            try {
+                getVisibleAll(locator).get(0).click();
+                return; // получилось - выходим
+            } catch (StaleElementReferenceException e) {
+                if (attempt == 3) {
+                    throw e;
+                }
+                Thread.sleep(300);
+            }
+        }
+    }
+
+    public void entryToListItem(By locator) throws InterruptedException {
+        click(Locator.ACTUAL_SELECT_LIST);
+        getElement(locator).click();
+        clickFirstItemCardWithRetry(Locator.ITEM_CARD);
+    }
 
 }

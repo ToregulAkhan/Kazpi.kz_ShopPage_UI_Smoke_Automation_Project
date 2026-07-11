@@ -8,6 +8,7 @@ public class Locator {
     public static final By SEARCH_INPUT = By.cssSelector("[id=\"search-bar-input\"]");
     public static final By SEARCH_BUTTON = By.cssSelector("[class=\"search-bar__submit-button\"]");
     public static final By OVERLAY = By.cssSelector(".search-bar-overlay");
+
     public static final By ITEM_CARD = By.cssSelector("[class=\"item-card ddl_product ddl_product_link undefined \"]");
 
     public static final By SELECT_LIST = By.cssSelector(".select__list-item");
@@ -28,6 +29,8 @@ public class Locator {
     public static final By CHEEP_PRICE_LIST = By.cssSelector("[data-id=\"price-asc\"]");
     public static final By EXPENSIVE_PRICE_LIST = By.cssSelector("[data-id=\"price-desc\"]");
     public static final By TOP_RATING_LIST = By.cssSelector("[data-id=\"rating\"]");
+
+    public static final By PRICE_LINK = By.cssSelector("[class=\"item__price-once\"]");
 
 
 }

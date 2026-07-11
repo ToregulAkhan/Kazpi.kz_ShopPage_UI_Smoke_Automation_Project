@@ -1,5 +1,6 @@
 package kaspi_shop.base;
 
+import kaspi_shop.constants.Locator;
 import kaspi_shop.driver.DriverManager;
 import kaspi_shop.pages.HomePage;
 import kaspi_shop.utils.WaitUtils;
@@ -18,35 +19,39 @@ public class BasePage {
         this.driver = driver;
         this.waitUtils = new WaitUtils(driver);
     }
+
 //__________________________________________________________________________________________________
 
     public void click(By locator){
-
         waitUtils.waitClickable(locator).click();
     }
 
 //_______________________________________________________________________________________________________
 
     public String getText(By locator){
-
         return waitUtils.waitVisible(locator).getText();
     }
 
-    //_______________________________________________________________________________________________________
+//_______________________________________________________________________________________________________
+
     public WebElement getElement(By locator){
         return waitUtils.waitVisible(locator);
     }
 
-    //_______________________________________________________________________________________________________
-    public List<WebElement> getVisibleAll(By locator){
+//_______________________________________________________________________________________________________
 
+    public List<WebElement> getVisibleAll(By locator){
         return waitUtils.waitVisibleAll(locator);
     }
-    //_______________________________________________________________________________________________________
+
+//_______________________________________________________________________________________________________
+
     public List<WebElement> getPresentAll(By locator){
         return waitUtils.waitPresentAll(locator);
     }
-    //_______________________________________________________________________________________________________
+
+//_______________________________________________________________________________________________________
+
     public boolean isDisplayed(By locator){
         try {
             return waitUtils.waitVisible(locator).isDisplayed();
@@ -54,7 +59,8 @@ public class BasePage {
             return false;
         }
     }
-    //_______________________________________________________________________________________________________
+
+//_______________________________________________________________________________________________________
 
     public boolean isMoreDisplayed(By locator){
         try {
@@ -63,21 +69,28 @@ public class BasePage {
             return false;
         }
     }
-    //_______________________________________________________________________________________________________
+
+//_______________________________________________________________________________________________________
+
     public WebElement refreshed(By locator){
         return waitUtils.waitRefreshed(locator);
     }
 
+//_______________________________________________________________________________________________________
+
     public List<WebElement> refreshedMore(By locator){
         return waitUtils.waitRefreshedMore(locator);
     }
-    //_______________________________________________________________________________________________________
+
+//_______________________________________________________________________________________________________
+
     public void clearAndType(By locator, String text){
         WebElement element = waitUtils.waitVisible(locator);
         element.clear();
         element.sendKeys(text);
     }
-    //_______________________________________________________________________________________________________
+
+//_______________________________________________________________________________________________________
 
     public void clearAndTypeAndEntry(By locator, String text){
         WebElement element = waitUtils.waitVisible(locator);
@@ -85,33 +98,50 @@ public class BasePage {
         element.sendKeys(text);
         element.sendKeys(Keys.ENTER);
     }
-    //_______________________________________________________________________________________________________
+
+//_______________________________________________________________________________________________________
+
     public void invisible(By locator){
         waitUtils.waitInvisible(locator);
     }
-    //_______________________________________________________________________________________________________
-    public String getCurrentUrl(){
 
+//_______________________________________________________________________________________________________
+
+    public String getCurrentUrl(){
         return driver.getCurrentUrl();
     }
-    //_______________________________________________________________________________________________________
-    public String getTitle(){
 
+//_______________________________________________________________________________________________________
+
+    public String getTitle(){
         return driver.getTitle();
     }
-    //_______________________________________________________________________________________________________
+
+//_______________________________________________________________________________________________________
+
     public String getValue(By locate){
         WebElement element = getElement(locate);
         return element.getAttribute("value");
     }
-    //_______________________________________________________________________________________________________
+
+//_______________________________________________________________________________________________________
 
     public boolean isPageOpened(By locator){
         return isDisplayed(locator);
     }
 
+//_______________________________________________________________________________________________________
+
     public WebElement getPresentElement(){
         return getPresentElement();
     }
+
 //_______________________________________________________________________________________________________
+
+    public int getNumber(By locator) {
+        String text = getText(locator);
+        String digits = text.replaceAll("[^0-9]", "");
+        return Integer.parseInt(digits);
+    }
+
 }
