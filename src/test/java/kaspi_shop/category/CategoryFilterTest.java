@@ -27,12 +27,7 @@ public class CategoryFilterTest extends BaseTest {
     public void checkFilters() throws InterruptedException {
         categoryPage = homePage.categoryPageOpen();
 
-        By price_10000 = By.xpath("//span[text()='200 000 - 499 999 т']");
-        By samsung = By.xpath("//span[text()='Samsung']");
-        By sulpak = By.xpath("//span[text()='Sulpаk']");
-
-        List<By> filterLink = List.of(price_10000, samsung, sulpak);
-        By activeFilterRow = By.cssSelector("[class=\"filters__filter-row _active \"]");
+        List<By> filterLink = List.of(Locator.PRICE_100000_149999, Locator.SAMSUNG, Locator.SULPAK);
 
         int expectedCount = 0;
 
@@ -43,7 +38,7 @@ public class CategoryFilterTest extends BaseTest {
             int attempts = 0;
             while (true) {
                 try {
-                    List<WebElement> activeFilters = categoryPage.getVisibleAll(activeFilterRow);
+                    List<WebElement> activeFilters = categoryPage.getVisibleAll(Locator.ACTIVE_FILTER_ROW);
                     Assert.assertEquals(activeFilters.size(), expectedCount);
 
                     System.out.println(activeFilters.get(activeFilters.size() - 1).getText());
@@ -65,13 +60,11 @@ public class CategoryFilterTest extends BaseTest {
     @Test
     public void checkSelectList () throws InterruptedException {
         categoryPage = homePage.categoryPageOpen();
-        By select_list = By.cssSelector(".select__list-item");
-        By actual_list = By.xpath("//div[@class=\"select__title\"]//span");
 
-        List<WebElement> all_select_list = categoryPage.getPresentAll(select_list);
+        List<WebElement> all_select_list = categoryPage.getPresentAll(Locator.SELECT_LIST);
         for(int i =0; i < all_select_list.size(); i++){
-            categoryPage.click(actual_list);
-            categoryPage.getVisibleAll(actual_list);
+            categoryPage.click(Locator.ACTUAL_SELECT_LIST);
+            categoryPage.getVisibleAll(Locator.ACTUAL_SELECT_LIST);
 
             Thread.sleep(50);
 
@@ -81,7 +74,7 @@ public class CategoryFilterTest extends BaseTest {
 
             while (true){
                 try {
-                    Assert.assertEquals(textName, categoryPage.getText(actual_list));
+                    Assert.assertEquals(textName, categoryPage.getText(Locator.ACTUAL_SELECT_LIST));
                     System.out.println(textName);
                     List<WebElement> size_item_card = categoryPage.getVisibleAll(Locator.ITEM_CARD);
                     Assert.assertFalse(size_item_card.isEmpty());
