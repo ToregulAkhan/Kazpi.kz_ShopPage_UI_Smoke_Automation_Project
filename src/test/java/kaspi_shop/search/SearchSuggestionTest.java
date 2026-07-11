@@ -1,4 +1,6 @@
 package kaspi_shop.search;
 
-public class SearchSuggestionTest {
+import kaspi_shop.base.BaseTest;
+
+public class SearchSuggestionTest extends BaseTest {
 }

@@ -1,4 +1,6 @@
 package kaspi_shop.listeners;
 
-public class TestListener {
+import kaspi_shop.base.BaseTest;
+
+public class TestListener extends BaseTest {
 }

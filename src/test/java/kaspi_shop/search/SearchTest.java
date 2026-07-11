@@ -1,4 +1,20 @@
 package kaspi_shop.search;
 
-public class SearchTest {
+import kaspi_shop.base.BaseTest;
+import org.openqa.selenium.By;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+public class SearchTest extends BaseTest {
+
+    @Test
+    public void checkSearchWorks() throws InterruptedException {
+        String elementForSearch = "книга";
+        By item_card = By.cssSelector("[class=\"item-card ddl_product ddl_product_link undefined \"]");
+
+        homePage.searchPage().search();
+        homePage.searchPage().inputToSearch(elementForSearch);
+        Assert.assertTrue(homePage.searchPage().isMoreDisplayed(item_card));
+
+    }
 }

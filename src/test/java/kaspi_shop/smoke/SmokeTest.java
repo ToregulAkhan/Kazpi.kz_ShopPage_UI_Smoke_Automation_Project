@@ -1,4 +1,6 @@
 package kaspi_shop.smoke;
 
-public class SmokeTest {
+import kaspi_shop.base.BaseTest;
+
+public class SmokeTest extends BaseTest {
 }

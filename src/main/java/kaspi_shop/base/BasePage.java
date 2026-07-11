@@ -132,8 +132,8 @@ public class BasePage {
 
 //_______________________________________________________________________________________________________
 
-    public WebElement getPresentElement(){
-        return getPresentElement();
+    public WebElement getPresentElement(By locator){
+        return waitUtils.waitPresent(locator);
     }
 
 //_______________________________________________________________________________________________________

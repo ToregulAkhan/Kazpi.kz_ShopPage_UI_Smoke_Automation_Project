@@ -28,6 +28,7 @@ public class HomePage extends BasePage {
         return new CategoryPage(driver);
     }
 
+
     public String getTextToCategory(By locator){
         return getText(locator);
     }

@@ -1,4 +1,6 @@
 package kaspi_shop.filters;
 
-public class ColorFilterTest {
+import kaspi_shop.base.BaseTest;
+
+public class ColorFilterTest extends BaseTest {
 }

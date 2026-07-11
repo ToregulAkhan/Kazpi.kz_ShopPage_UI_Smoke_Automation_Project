@@ -1,4 +1,6 @@
 package kaspi_shop.product;
 
-public class SellerTest {
+import kaspi_shop.base.BaseTest;
+
+public class SellerTest extends BaseTest {
 }

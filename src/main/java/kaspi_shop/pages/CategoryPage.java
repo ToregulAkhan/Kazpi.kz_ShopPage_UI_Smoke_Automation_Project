@@ -33,4 +33,12 @@ public class CategoryPage extends BasePage {
         clickFirstItemCardWithRetry(Locator.ITEM_CARD);
     }
 
+    public void clickPrevious(){
+        click(Locator.PREVIOUS);
+    }
+
+    public void clickNext(){
+        click(Locator.NEXT);
+    }
+
 }

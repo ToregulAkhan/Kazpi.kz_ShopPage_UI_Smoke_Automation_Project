@@ -84,15 +84,5 @@ public class HomePageTest extends BaseTest {
     }
 
 
-    @Test
-    public void checkSearchWorks() throws InterruptedException {
-        String elementForSearch = "книга";
-        By item_card = By.cssSelector("[class=\"item-card ddl_product ddl_product_link undefined \"]");
 
-        homePage.searchPage().search();
-        homePage.searchPage().inputToSearch(elementForSearch);
-        Assert.assertTrue(homePage.searchPage().isMoreDisplayed(item_card));
-
-
-    }
 }

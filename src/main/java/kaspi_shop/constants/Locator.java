@@ -32,5 +32,9 @@ public class Locator {
 
     public static final By PRICE_LINK = By.cssSelector("[class=\"item__price-once\"]");
 
+    public static final By PREVIOUS = By.xpath("//li[text()=\"← Предыдущая\"]");
+    public static final By NEXT = By.xpath("//li[text()=\"Следующая →\"]");
+
+
 
 }

@@ -1,4 +1,6 @@
 package kaspi_shop.runners;
 
-public class TestRunner {
+import kaspi_shop.base.BaseTest;
+
+public class TestRunner extends BaseTest {
 }
