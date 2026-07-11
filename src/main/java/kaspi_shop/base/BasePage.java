@@ -3,10 +3,7 @@ package kaspi_shop.base;
 import kaspi_shop.driver.DriverManager;
 import kaspi_shop.pages.HomePage;
 import kaspi_shop.utils.WaitUtils;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.testng.Assert;
 
 import java.security.Key;
@@ -53,7 +50,7 @@ public class BasePage {
     public boolean isDisplayed(By locator){
         try {
             return waitUtils.waitVisible(locator).isDisplayed();
-        }catch (NoSuchElementException e){
+        }catch (TimeoutException | NoSuchElementException e){
             return false;
         }
     }
@@ -62,13 +59,17 @@ public class BasePage {
     public boolean isMoreDisplayed(By locator){
         try {
             return waitUtils.waitVisibleAll(locator).get(1).isDisplayed();
-        }catch (NoSuchElementException e){
+        }catch (TimeoutException | NoSuchElementException e){
             return false;
         }
     }
     //_______________________________________________________________________________________________________
     public WebElement refreshed(By locator){
         return waitUtils.waitRefreshed(locator);
+    }
+
+    public List<WebElement> refreshedMore(By locator){
+        return waitUtils.waitRefreshedMore(locator);
     }
     //_______________________________________________________________________________________________________
     public void clearAndType(By locator, String text){
