@@ -19,18 +19,8 @@ public class CategoryNavigationTest extends BaseTest {
             String pagination = categoryPage.getText(Locator.ACTIVE);
             Assert.assertEquals(Integer.parseInt(pagination), i);
 
-            int count = 0;
-            while (true){
-                try {
-                    categoryPage.getVisibleAll(Locator.ITEM_CARD);
-                    break;
-                }catch (NoSuchElementException e){
-                    if (count == 3){
-                        throw e;
-                    }count++;
-                }
-            }
-            Assert.assertFalse(categoryPage.getVisibleAll(Locator.ITEM_CARD).isEmpty());
+            categoryPage.checkItems();
+
             categoryPage.clickNext();
             wait.until(ExpectedConditions.textToBe(Locator.ACTIVE, String.valueOf(i+1)));
         }
@@ -39,10 +29,25 @@ public class CategoryNavigationTest extends BaseTest {
 
     @Test
     public void checkPrevious(){
+        setCategoryPage();
+        Assert.assertEquals(categoryPage.getText(Locator.ACTIVE),"1");
+        categoryPage.getVisibleAll(Locator.PAGINATION_EL).get(1).click();
+        wait.until(ExpectedConditions.textToBe(Locator.ACTIVE, "3"));
+
+        categoryPage.checkItems();
+
+        wait.until(ExpectedConditions.textToBe(Locator.PREVIOUS, "← Предыдущая"));
+        categoryPage.getVisibleAll(Locator.PAGINATION_EL).get(1).click();
+        wait.until(ExpectedConditions.textToBe(Locator.ACTIVE, "1"));
+        wait.until(ExpectedConditions.textToBe(Locator.DISABLED, "← Предыдущая"));
+        Assert.assertEquals(categoryPage.getText(Locator.DISABLED), "← Предыдущая");
+
 
     }
 
     public void setCategoryPage(){
         categoryPage = homePage.categoryPageOpen();
     }
+
+
 }
