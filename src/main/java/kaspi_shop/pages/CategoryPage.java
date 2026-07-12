@@ -49,7 +49,7 @@ public class CategoryPage extends BasePage {
             try {
                 getVisibleAll(Locator.ITEM_CARD);
                 break;
-            }catch (NoSuchElementException e){
+            }catch (NoSuchElementException | StaleElementReferenceException e){
                 if (count == 3){
                     throw e;
                 }count++;
@@ -57,5 +57,6 @@ public class CategoryPage extends BasePage {
         }
         Assert.assertFalse(getVisibleAll(Locator.ITEM_CARD).isEmpty());
     }
+
 
 }

@@ -11,6 +11,7 @@ public class Locator {
 
     public static final By ITEM_CARD = By.cssSelector("[class=\"item-card ddl_product ddl_product_link undefined \"]");
 
+    //filter_actual
     public static final By SELECT_LIST = By.cssSelector(".select__list-item");
     public static final By ACTUAL_SELECT_LIST = By.xpath("//div[@class=\"select__title\"]//span");
     public static final By ACTIVE_FILTER_ROW = By.cssSelector("[class=\"filters__filter-row _active \"]");
@@ -23,7 +24,10 @@ public class Locator {
     public static final By NIKE = By.xpath("//span[text()='Nike']");
     public static final By LEGO = By.xpath("//span[text()='LEGO']");
     public static final By SULPAK = By.xpath("//span[text()='Sulpаk']");
-    public static final By SELLERS = By.xpath("//span[text()='Продавцы']/following-sibling::div//div[contains(@class,'filters__filter-row')]");
+    public static final By FILTER_SELLERS = By.xpath("//span[text()='Продавцы']/following-sibling::div//div[contains(@class,'filters__filter-row')]");
+    public static final By FILTER_PRICE = By.xpath("//span[text()='Цена']/following-sibling::div//div[contains(@class,'filters__filter-row')]");
+    public static final By FILTER_BRAND = By.xpath("//span[text()='Бренд']/following-sibling::div//div[contains(@class,'filters__filter-row')]");
+    public static final By BUTTON_SHOW_ELSE = By.cssSelector("[class=\"filters__spoiler \"]");
 
     //select_list_item
     public static final By POPULAR_LIST = By.cssSelector("[data-id=\"relevance\"]");
