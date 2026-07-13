@@ -140,7 +140,7 @@ public class BasePage {
 
     public int getNumber(By locator) {
         String text = getText(locator);
-        String digits = text.replaceAll("[^0-9]", "");
+        String digits = text.replaceAll("\\D", "");
         return Integer.parseInt(digits);
     }
 
