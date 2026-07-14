@@ -148,4 +148,8 @@ public class BasePage {
         waitUtils.waitStaleness(oldElement);
     }
 
+    public void back() {
+        driver.navigate().back();
+    }
+
 }

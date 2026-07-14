@@ -88,11 +88,13 @@ public class CategoryPage extends BasePage {
 
         System.out.println("Активных фильтров сейчас: " + getVisibleAll(Locator.ACTIVE_FILTER_ROW).size());
 
+    }
+
+    public void clickToActiveRow(){
         // СНЯТИЕ ФИЛЬТРА — тоже ждём обновления товаров, а не staleness чипа
         WebElement oldItemCard2 = getElement(Locator.ITEM_CARD);
         click(Locator.ACTIVE_FILTER_ROW);
         waitUpdatePage(oldItemCard2);   // <-- товары, не активная строка
-
     }
 
     public int allFilterSize(By locator){
